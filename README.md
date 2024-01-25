@@ -1,3 +1,31 @@
+# Тестовый проект `собрать React App в единственный HTML-файл`
+
+### получилось собрать:
+
+- index.html
+- .js
+- .css
+
+### не получилось:
+
+- всё остальные ресурсы (например: logo.svg)
+
+`sourceMappingURL=static/js/main. .js.map`
+
+### работает с:
+
+- "react": "^18.2.0",
+- "webpack": "^5.64.4",
+- "@effortlessmotion/html-webpack-inline-source-plugin": "^1.0.3",
+- "html-webpack-plugin": "^5.6.0"
+
+### сделано по мануалам:
+
+- https://stackoverflow.com/a/51949970
+- https://github.com/DustinJackson/html-webpack-inline-source-plugin/issues/79#issuecomment-1680177109
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

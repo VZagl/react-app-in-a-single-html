@@ -1,10 +1,12 @@
 "use strict";
+const HtmlWebpackInlineSourcePlugin = require("@effortlessmotion/html-webpack-inline-source-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
 const resolve = require("resolve");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -564,7 +566,14 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        inject: "body",
+        template: "src/index.html",
+        inlineSource: ".(js|css)$", // embed all javascript and css inline
+      }),
+      new HtmlWebpackInlineSourcePlugin(),
       // Generates an `index.html` file with the <script> injected.
+      /*
       new HtmlWebpackPlugin(
         Object.assign(
           {},
@@ -602,6 +611,7 @@ module.exports = function (webpackEnv) {
       // It will be an empty string unless you specify "homepage"
       // in `package.json`, in which case it will be the pathname of that URL.
       new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
+      */
       // This gives some necessary context to module not found errors, such as
       // the requesting resource.
       new ModuleNotFoundPlugin(paths.appPath),
