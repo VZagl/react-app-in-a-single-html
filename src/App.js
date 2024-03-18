@@ -1,6 +1,6 @@
 import proj4 from "proj4";
 
-import logo from "./public/logo.svg";
+import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
